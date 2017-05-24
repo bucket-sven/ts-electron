@@ -1,0 +1,25 @@
+{
+  "files": [
+    "src/app.ts"
+  ],
+  "include": [
+    "src/**/*"
+  ],
+  "compilerOptions": {
+    // "noImplicitAny": true, // 这句就是个坑
+    "suppressImplicitAnyIndexErrors":true,
+    "module": "commonjs",
+    "sourceMap": true,
+    "target": "es6",
+    "noUnusedLocals": true,
+    "lib": [
+      "es2015",
+      "es2015.promise",
+      "dom"
+    ],
+    "types": [
+      "node"
+    ],
+    "moduleResolution": "node"
+  }
+}
