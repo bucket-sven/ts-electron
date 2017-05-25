@@ -1,9 +1,5 @@
 import { app, BrowserWindow } from 'electron'
-import * as path from 'path'
 import baseConfig, { IBaseConfig } from './base.config'
-
-const iconPath = path.join(__dirname, '../public/images/logo.png')
-const env = process.env.NODE_ENV || 'development'
 
 class App {
   private appWindow: Electron.BrowserWindow;
@@ -14,14 +10,14 @@ class App {
       self.appWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        icon: iconPath
+        icon: baseConfig.iconPath
       })
 
       if (process.platform === 'darwin') {
-        app.dock.setIcon(iconPath)
+        app.dock.setIcon(baseConfig.iconPath)
       }
       self.appWindow.webContents.openDevTools()
-      let config: IBaseConfig.EnvConfig = baseConfig[env]
+      let config: IBaseConfig.EnvConfig = baseConfig[baseConfig.NODE_ENV]
       let path = config.homePage
       self.appWindow.loadURL(path)
     })
