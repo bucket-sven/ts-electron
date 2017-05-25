@@ -7,9 +7,9 @@
   "author": "sven",
   "license": "MIT",
   "scripts": {
-    "compile": "node_modules/webpack/bin/webpack.js",
+    "compile": "node_modules/webpack/bin/webpack.js --config webpack.app.config.js",
     "watch": "node_modules/webpack/bin/webpack.js",
-    "start": "rm -rf dist/ && npm run watch && node_modules/electron/cli.js index.js"
+    "start": "rm -rf dist/ && npm run compile && node_modules/electron/cli.js index.js"
   },
   "dependencies": {
     "electron": "^1.6.8",
