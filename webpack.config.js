@@ -1,10 +1,14 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/app.ts',
+  entry: {
+    'app': './src/app.ts',
+    'bundle': './src/index.tsx'
+  },
 
   output: {
-    filename: 'app.js',
+    filename: '[name].js',
     path: path.join(__dirname, './dist')
   },
 
@@ -22,7 +26,19 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'ts-loader' }
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader!ts-jsx-loader',
+        exclude: /node_modules/
+      }
     ]
-  }
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      inject: false,
+      template: path.join(__dirname, './src/index.html')
+    })
+  ]
 }

@@ -1,8 +1,9 @@
 import { app, BrowserWindow } from 'electron'
 import * as path from 'path'
+import baseConfig, { IBaseConfig } from './base.config'
 
 const iconPath = path.join(__dirname, '../public/images/logo.png')
-const port = process.env.PORT || 8080
+const env = process.env.NODE_ENV || 'development'
 
 class App {
   private appWindow: Electron.BrowserWindow;
@@ -20,7 +21,8 @@ class App {
         app.dock.setIcon(iconPath)
       }
       self.appWindow.webContents.openDevTools()
-      let path = `http://localhost:${port}/webpack-dev-server/index.html`
+      let config: IBaseConfig.EnvConfig = baseConfig[env]
+      let path = config.homePage
       self.appWindow.loadURL(path)
     })
 

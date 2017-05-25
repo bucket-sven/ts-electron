@@ -12,6 +12,7 @@
     "sourceMap": true,
     "target": "es6",
     "noUnusedLocals": true,
+    "jsx": "react",
     "lib": [
       "es2015",
       "es2015.promise",
