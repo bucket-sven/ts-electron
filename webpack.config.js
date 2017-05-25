@@ -8,6 +8,11 @@ module.exports = {
     path: path.join(__dirname, './dist')
   },
 
+  node: {
+    __dirname: false,
+    __filename: false
+  },
+
   resolve: {
     extensions: ['.ts', '.js']
   },
