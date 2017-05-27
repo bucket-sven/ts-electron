@@ -12,17 +12,9 @@ module.exports = {
     path: path.join(__dirname, './dist')
   },
 
-  node: {
-    __dirname: false,
-    __filename: false
-  },
-
   resolve: {
     extensions: ['.ts', '.js']
   },
-
-  // webpack重实现了require方法，导致大量原生包无法调用，据说也可以添加这句："var fs = global.require('fs')"
-  target: 'atom',
 
   module: {
     loaders: [
@@ -35,6 +27,7 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: true,
