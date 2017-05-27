@@ -4,7 +4,7 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    bundle: ['./src/index.tsx']
+    bundle: ['./src/frontend/index.tsx']
   },
 
   output: {
@@ -31,7 +31,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: true,
-      template: path.join(__dirname, './src/index.html')
+      template: path.join(__dirname, './src/frontend/index.html')
     }),
     new webpack.DefinePlugin({'process.env.NODE_ENV': '"development"'})
   ]
