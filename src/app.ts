@@ -22,7 +22,7 @@ class App {
       self.appWindow.loadURL(path)
     })
 
-    app.on('close', () => {
+    app.on('window-all-closed', () => {
       if (process.platform !== 'darwin') {
         app.quit()
       }
