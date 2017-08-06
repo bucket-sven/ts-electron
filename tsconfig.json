@@ -1,6 +1,6 @@
 {
   "files": [
-    "src/app.ts"
+    "src/app/index.ts"
   ],
   "include": [
     "src/**/*"
